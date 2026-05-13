@@ -158,11 +158,11 @@ jobs:
               "--add-header" "Accept-Language: en-US,en;q=0.9"
           )
           
-          # ---- extractor args ----
-          EXTRACTOR_ARGS=(
-              "--extractor-args" "youtube:player_client=android"
-              "--throttled-rate" "100K"
-          )
+          # # ---- extractor args ----
+          # EXTRACTOR_ARGS=(
+          #     "--extractor-args" "youtube:player_client=android"
+          #     "--throttled-rate" "100K"
+          # )
           
           # ---- output ----
           OUTPUT_OPTS=()
@@ -177,7 +177,7 @@ jobs:
           
           echo "Running yt-dlp with command:"
           
-          yt-dlp --remote-components ejs:github "${PROXY_ARGS[@]}" "${UA_ARGS[@]}" "${EXTRACTOR_ARGS[@]}" $FORMAT_OPTS "${OUTPUT_OPTS[@]}" "${{ inputs.url }}"
+          yt-dlp --remote-components ejs:github "${PROXY_ARGS[@]}" "${UA_ARGS[@]}" $FORMAT_OPTS "${OUTPUT_OPTS[@]}" "${{ inputs.url }}"
           
           # find name
           FILE=$(ls -1 | head -n 1)
